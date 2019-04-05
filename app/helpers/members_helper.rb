@@ -2,6 +2,8 @@ module MembersHelper
 
   def current_member
     Member.find(session["current_member_id"]) if session["current_member_id"]
+  rescue
+    session["current_member_id"] = nil
   end
 
   def can_manage_friendships(friend)

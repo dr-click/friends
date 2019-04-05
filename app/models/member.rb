@@ -19,13 +19,23 @@ class Member < ApplicationRecord
   end
 
   def friends
-    Friendship.where("member_id = ? OR friend_id = ?", self.id, self.id).includes(:member, :friend)
+    Friendship.where("member_id = ? OR friend_id = ?", self.id, self.id)
   end
 
   def my_friends
     ids = friends.map{|u| [u.member_id, u.friend_id] }.flatten
     ids -= [self.id]
     Member.find(ids)
+  end
+
+  def mutual_friends(user)
+    return [] if self == user
+    ids = friends.map{|u| [u.member_id, u.friend_id] }.flatten.push(0)
+    friend_ids = Friendship.where("member_id in (?) OR friend_id in (?)", ids, ids).map{|u| [u.member_id, u.friend_id] }.flatten
+
+    puts " > > > > > ids : #{ids.inspect}"
+    friend_ids -= [self.id, user.id]
+    Member.find(friend_ids)
   end
 
   #######

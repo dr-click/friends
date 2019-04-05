@@ -6,6 +6,11 @@ class MembersController < ApplicationController
     @search_keyword = search_keyword
   end
 
+  def search
+    @members = Members::MemberSearchService.new(search_keyword).execute
+    @search_keyword = search_keyword
+  end
+
   def show
   end
 
