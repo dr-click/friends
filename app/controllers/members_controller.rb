@@ -27,4 +27,12 @@ class MembersController < ApplicationController
     end
   end
 
+  def set_current
+    session["current_member_id"] = @member.id
+    respond_to do |format|
+      format.html { redirect_to members_path, notice: 'Done successfully.' }
+      format.json { render :json => {}, status: :ok }
+    end
+  end
+
 end

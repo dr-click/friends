@@ -12,7 +12,7 @@
       <th scope="col">Name</th>
       <th scope="col">Original website</th>
       <th scope="col">Website</th>
-      <th scope="col" colspan="1"></th>
+      <th scope="col" colspan="2"></th>
     </tr>
   </thead>
   <tbody>
@@ -22,6 +22,7 @@
         <td><%= member.name %></td>
         <td><%= link_to member.original_website, member.original_website, target: "_blank" %></td>
         <td><%= member.website %></td>
+        <td><%= link_to 'Set as Current', set_current_member_path(member) %></td>
         <td><%= link_to 'Show', member %></td>
       </tr>
     <% end %>

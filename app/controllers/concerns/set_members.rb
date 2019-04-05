@@ -2,7 +2,7 @@ module SetMembers
   extend ActiveSupport::Concern
 
   included do
-    before_action :set_member, only: [:show, :new]
+    before_action :set_member, only: [:show, :new, :set_current]
     before_action :set_members, only: [:index]
   end
 

@@ -28,6 +28,14 @@
               <li><a href="#"></a></li>
               <li><a href="#"></a></li>
             </ul>
+
+            <% if current_member %>
+              <ul class="nav navbar-nav navbar-right">
+                <li class="active">
+                  <%= link_to current_member.name, current_member %>
+                </li>
+              </ul>
+            <% end %>
           </div>
         </div>
       </nav>

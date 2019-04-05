@@ -173,4 +173,25 @@ RSpec.describe MembersController, type: :controller do
       end
     end
   end
+
+  describe "GET #set_current" do
+    let(:member) {
+      Member.create! valid_attributes[:member]
+    }
+
+    context "HTML with valid parameters" do
+      before do
+        get :set_current, params: {id: member.to_param}, session: valid_session
+      end
+
+      it "redirects to the members page" do
+        expect(response).to redirect_to(members_path)
+      end
+
+      it "sets member id in session" do
+        expect(session["current_member_id"]).to eq(member.id)
+      end
+
+    end
+  end
 end

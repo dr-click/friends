@@ -69,3 +69,7 @@ Friendships social network Rails application
   > Store the crawled HTML tags in document base database for better searching instead of storing in text field.
 
   > Add indexs for better seach performance.
+
+## Notes
+
+  > We use 'Set as Current' action to set any member as current member in the session
