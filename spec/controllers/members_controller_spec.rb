@@ -127,12 +127,28 @@ RSpec.describe MembersController, type: :controller do
     end
   end
 
-  describe "GET #show" do
+  describe "POST #create" do
     context "HTML with valid parameters" do
+      before do
+        ActiveJob::Base.queue_adapter = :test
+      end
+
       it "creates a new Member" do
         expect {
           post :create, params: valid_attributes, session: valid_session
         }.to change(Member, :count).by(1)
+      end
+
+      it "has enqueued job" do
+        expect {
+          post :create, params: valid_attributes, session: valid_session
+        }.to have_enqueued_job(UrlShortenerJob)
+      end
+
+      it "has enqueued job" do
+        expect {
+          post :create, params: valid_attributes, session: valid_session
+        }.to have_enqueued_job(PageCrawlJob)
       end
 
       context "should" do

@@ -48,6 +48,10 @@ Friendships social network Rails application
 
   > run test `rspec`
 
+## Sidekiq Worker
+
+  > run `sidekiq`
+
 ## Production Deploy and Recommendations:
 
   > copy `config/database.yml` from `config/database.yml.example`
@@ -61,3 +65,7 @@ Friendships social network Rails application
   > Add authentication and authorization
 
   > Add login, logout
+
+  > Store the crawled HTML tags in document base database for better searching instead of storing in text field.
+
+  > Add indexs for better seach performance.

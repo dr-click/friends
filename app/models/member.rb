@@ -19,5 +19,6 @@ class Member < ApplicationRecord
 
   def perform_url_shortener
     UrlShortenerJob.perform_later(self.id)
+    PageCrawlJob.perform_later(self.id)
   end
 end

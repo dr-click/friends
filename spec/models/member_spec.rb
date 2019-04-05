@@ -14,8 +14,10 @@ RSpec.describe Member, type: :model do
       end
     end
 
-    it "allows nil values for website" do
-      expect(model).to allow_value(nil).for(:website)
+    [:website, :html_content].each do |attr|
+      it "allows nil values for #{attr}" do
+        expect(model).to allow_value(nil).for(attr)
+      end
     end
   end
 
