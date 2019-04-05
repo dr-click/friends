@@ -4,7 +4,7 @@
 
 Friendships social network Rails application
 
-## API Cals:
+## API Calls:
 
   > GET /members.json : returns system members list
 
