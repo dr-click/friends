@@ -4,12 +4,19 @@
 
 Friendships social network Rails application
 
+## API Cals:
+
+  > GET /members.json : returns system members list
+
+  > GET /members/:id.json
+
+  > POST /members.json
 
 ## Project Details:
 
 * Environment
 
-  > API Rails Project
+  > Rails Project with API support
 
   > Ruby 2.6.1
 
@@ -40,3 +47,9 @@ Friendships social network Rails application
 ## Production Deploy and Recommendations:
 
   > copy `config/database.yml` from `config/database.yml.example`
+
+## ToDo
+
+  > Add authentication and authorization
+
+  > Add login, logout

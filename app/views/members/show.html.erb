@@ -1,0 +1,30 @@
+<div class="row profile">
+  <div class="col-md-12">
+    <div class="profile-sidebar">
+      <div class="profile-usertitle">
+        <div class="profile-usertitle-name">
+          <%= @member.name.upcase %>
+        </div>
+        <div class="profile-usertitle-job">
+          <%= link_to "Website", @member.original_website, target: "_blank" %>
+        </div>
+      </div>
+
+      <div class="profile-userbuttons">
+        <button type="button" class="btn btn-success btn-sm">Add Friend</button>
+        <button type="button" class="btn btn-danger btn-sm">Remove Friend</button>
+      </div>
+
+      <div class="profile-usermenu">
+        <ul class="nav">
+          <li>
+            <a href="#">
+              <strong>Friends</strong>
+              <span>0</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

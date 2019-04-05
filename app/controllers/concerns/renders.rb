@@ -8,7 +8,7 @@ module Renders
   private
   #######
 
-  def render_errors(errors)
+  def render_unprocessable(errors)
     respond_to do |format|
       format.html { render(:file => unprocessable_entity_file,  :status => :unprocessable_entity) }
       format.json { render(:json => {:success => false, :error => errors}, status: :unprocessable_entity) }
