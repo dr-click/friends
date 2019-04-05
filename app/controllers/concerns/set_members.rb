@@ -3,7 +3,6 @@ module SetMembers
 
   included do
     before_action :set_member, only: [:show, :new, :set_current]
-    before_action :set_members, only: [:index]
   end
 
   #######
@@ -12,10 +11,6 @@ module SetMembers
 
   def set_member
     @member = params[:id].blank? ? Member.new : Member.find(params[:id])
-  end
-
-  def set_members
-    @members = Member.all
   end
 
   def member_params

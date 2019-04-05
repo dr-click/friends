@@ -27,6 +27,8 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'google_url_shortener'
 gem 'sidekiq'
+gem "pg_search"
+
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

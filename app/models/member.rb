@@ -1,4 +1,6 @@
 class Member < ApplicationRecord
+  include MemberSearch
+
   validates :name, :original_website, presence: true
   validates :original_website, url: true, on: :create
   validates :name, uniqueness: true

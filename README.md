@@ -59,7 +59,7 @@ Friendships social network Rails application
 
   > Add login, logout
 
-  > Store the crawled HTML tags in document base database for better searching instead of storing in text field.
+  > Store the crawled HTML tags in document base database for better searching instead of storing in text field
 
   > Add indexs for better seach performance.
 
@@ -69,6 +69,10 @@ Friendships social network Rails application
 
   > Add more test coverage
 
+  > Add pagination on members
+
 ## Notes
 
   > We use 'Set as Current' action to set any member as current member in the session
+
+  > We use full-text-search for the search

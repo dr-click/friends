@@ -52,6 +52,29 @@ RSpec.describe MembersController, type: :controller do
       end
     end
 
+    context "HTML with keyword" do
+      let(:member_2) {
+        Member.create! valid_attributes[:member].merge({html_content: "test keyword"})
+      }
+
+      before do
+        get :index, params: {keyword: "test keyword"}, session: valid_session
+      end
+
+      it "returns a success response" do
+        expect(response).to be_successful
+      end
+
+      it "renders Index" do
+        expect(response).to render_template(:index)
+      end
+
+      it "returns Array" do
+        expect(assigns(:members)).to be_a(ActiveRecord::Relation)
+        expect(assigns(:members)).to eq([member_2])
+      end
+    end
+
     context "JSON with valid parameters" do
       before do
         get :index, params: {}, session: valid_session, format: :json

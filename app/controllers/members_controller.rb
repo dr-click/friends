@@ -2,6 +2,8 @@ class MembersController < ApplicationController
   include SetMembers
 
   def index
+    @members = Members::SearchService.new(search_keyword).execute
+    @search_keyword = search_keyword
   end
 
   def show
@@ -33,6 +35,14 @@ class MembersController < ApplicationController
       format.html { redirect_to members_path, notice: 'Done successfully.' }
       format.json { render :json => {}, status: :ok }
     end
+  end
+
+  #######
+  private
+  #######
+
+  def search_keyword
+    params[:keyword]
   end
 
 end
