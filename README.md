@@ -30,6 +30,10 @@ Friendships social network Rails application
 
   > copy `config/database.yml` from `config/database.yml.example`
 
+  > copy `config/app_config.yml` from `config/app_config.yml.example`
+
+  > copy `config/sidekiq.yml` from `config/sidekiq.yml.example`
+
 * Database creation
 
   > run `rails db:create`
@@ -47,6 +51,10 @@ Friendships social network Rails application
 ## Production Deploy and Recommendations:
 
   > copy `config/database.yml` from `config/database.yml.example`
+
+  > copy `config/app_config.yml` from `config/app_config.yml.example`
+
+  > copy `config/sidekiq.yml` from `config/sidekiq.yml.example`
 
 ## ToDo
 
