@@ -1,3 +1,14 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :members, only: [:index, :show, :new, :create] do
+    resources :friendships, only: [:create]
+    collection do
+      get :search
+    end
+    member do
+      get :set_current
+    end
+  end
+
+  get "/pages/:page" => "pages#show"
+  root "pages#show", page: :home
 end

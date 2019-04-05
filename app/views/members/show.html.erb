@@ -1,0 +1,75 @@
+<div class="row profile">
+  <div class="col-md-12">
+    <div class="profile-sidebar">
+      <div class="profile-usertitle">
+        <div class="profile-usertitle-name">
+          <%= @member.name.upcase %>
+        </div>
+        <div class="profile-usertitle-name">
+          Friends Count : <%= @member.friends.count %>
+        </div>
+        <div class="profile-usertitle-job">
+          <%= link_to "Website", @member.original_website, target: "_blank" %>
+        </div>
+      </div>
+
+      <% if can_manage_friendships(@member) %>
+        <div class="profile-userbuttons">
+          <% if can_add_friend(@member) %>
+            <%= link_to "Add Friend", member_friendships_path(@member), class: "btn btn-success btn-sm", method: :post %>
+          <% else %>
+            <a type="button" class="btn btn-danger btn-sm">Remove Friend (Not Implemented)</a>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% my_friends = @member.my_friends %>
+<% if my_friends.any? %>
+<div class="row profile">
+  <div class="col-md-12">
+    <div class="profile-sidebar">
+      <div class="profile-usermenu">
+        <div class="">
+          <h3>Friends</h3>
+        </div>
+        <ul class="nav">
+          <li>
+            <% @member.my_friends.each do |friend| %>
+              <%= link_to friend do %>
+                <strong><%= friend.name %></strong>
+              <% end %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<% mutual_friends = current_member.mutual_friends(@member) if current_member %>
+<% if mutual_friends && mutual_friends.any? %>
+<div class="row profile">
+  <div class="col-md-12">
+    <div class="profile-sidebar">
+      <div class="profile-usermenu">
+        <div class="">
+          <h1>Mutual Friends</h1>
+        </div>
+        <ul class="nav">
+          <li>
+            <% mutual_friends.each do |friend| %>
+              <%= link_to friend do %>
+                <strong><%= friend.name %></strong>
+              <% end %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

@@ -1,0 +1,28 @@
+What are the potential cost implications of the GIL for scaling a production application?
+
+An Application scalability is the possibility to be able to grow and handle more requests per minute, Global Interpreter Lock(GIL) it ensures that just one thread can run for one process, however threads are way to address concurrency.
+
+Meanwhile multiple threads can take advantage of a distributed architecture by executing processes on multiple processor cores or machines, which can providing extremely high scalability, But GIL prevents multiple Ruby threads from executing at the same time. This means that no matter how many threads you seed.
+
+In practice, from a regular web application standpoint, it should not matter much if it's single or multithreaded. The problem mostly arises on the server side anyhow and it mostly is a matter of scaling technique difference.
+
+The conclusion, It is a highly significant issue to care about the scalability without multithreaded, The problem mostly arises on the server side, which is important and might need to run more servers to achieve scalability and handle more request.
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+How a background job queuing service could help when accessing external APIs?
+
+Background job queuing is a data structure containing jobs to run outside the common request-response cycle.
+Poor queuing systems can lead to a drop in productivity and performance of your application, because if you can reduce the response time, you can expect your customers are happier.
+
+The importance of job queuing systems is :
+- Reduce the request-response times.
+- Prioritize the queued jobs and control the primacy.
+- Make sure the request ends up successfully in the right process.
+
+When the application receives a request they can be complex and require several processes and you are not quite sure how long time it takes, while your customer is out there waiting for the response, the customer becomes more and more unhappy.
+
+Responding to your requests straight away would work to your advantage when it comes to reducing response time and queuing complex jobs.

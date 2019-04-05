@@ -1,0 +1,12 @@
+<div class="jumbotron">
+  <h3>Members Search</h3>
+  <%= form_with(model: Member, url: search_members_path, method: :get, local: true) do |form| %>
+    <div class="form-group">
+      <label for="search_keyword">Member Name</label>
+      <input class="form-control" aria-describedby="nameHelp" placeholder="Member Name" type="text" name="keyword" id="search_keyword" value="<%= @search_keyword %>">
+      <small id="nameHelp" class="form-text text-muted">Member Name</small>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Search</button>
+  <% end %>
+</div>

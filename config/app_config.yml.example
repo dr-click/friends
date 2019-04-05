@@ -1,0 +1,10 @@
+default: &default
+  application_name: "Friends"
+  url_shortener:
+    access_key: "AIzaSyAG0anFVF2mgjFY19StpHwAnTE9f078g5U"
+
+development:
+  <<: *default
+
+test:
+  <<: *default
