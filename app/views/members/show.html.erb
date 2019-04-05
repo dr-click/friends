@@ -5,23 +5,32 @@
         <div class="profile-usertitle-name">
           <%= @member.name.upcase %>
         </div>
+        <div class="profile-usertitle-name">
+          Friends Count : <%= @member.friends.count %>
+        </div>
         <div class="profile-usertitle-job">
           <%= link_to "Website", @member.original_website, target: "_blank" %>
         </div>
       </div>
 
-      <div class="profile-userbuttons">
-        <button type="button" class="btn btn-success btn-sm">Add Friend</button>
-        <button type="button" class="btn btn-danger btn-sm">Remove Friend</button>
-      </div>
+      <% if can_manage_friendships(@member) %>
+        <div class="profile-userbuttons">
+          <% if can_add_friend(@member) %>
+            <%= link_to "Add Friend", member_friendships_path(@member), class: "btn btn-success btn-sm", method: :post %>
+          <% else %>
+            <a type="button" class="btn btn-danger btn-sm">Remove Friend (Not Implemented)</a>
+          <% end %>
+        </div>
+      <% end %>
 
       <div class="profile-usermenu">
         <ul class="nav">
           <li>
-            <a href="#">
-              <strong>Friends</strong>
-              <span>0</span>
-            </a>
+            <% @member.my_friends.each do |friend| %>
+              <%= link_to friend do %>
+                <strong><%= friend.name %></strong>
+              <% end %>
+            <% end %>
           </li>
         </ul>
       </div>

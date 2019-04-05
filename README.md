@@ -42,6 +42,7 @@ Friendships social network Rails application
 
   > run `rails db:seed`
 
+
 ## Tests
 
   > database migration `rails db:migrate RAILS_ENV=test`
@@ -52,14 +53,6 @@ Friendships social network Rails application
 
   > run `sidekiq`
 
-## Production Deploy and Recommendations:
-
-  > copy `config/database.yml` from `config/database.yml.example`
-
-  > copy `config/app_config.yml` from `config/app_config.yml.example`
-
-  > copy `config/sidekiq.yml` from `config/sidekiq.yml.example`
-
 ## ToDo
 
   > Add authentication and authorization
@@ -69,6 +62,12 @@ Friendships social network Rails application
   > Store the crawled HTML tags in document base database for better searching instead of storing in text field.
 
   > Add indexs for better seach performance.
+
+  > Use GraphDB for Friendships, like Neo4j
+
+  > Add destory friend feature
+
+  > Add more test coverage
 
 ## Notes
 
