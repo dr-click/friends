@@ -1,24 +1,42 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Friends
 
-Things you may want to cover:
+Friendships social network Rails application
 
-* Ruby version
 
-* System dependencies
+## Project Details:
+
+* Environment
+
+  > API Rails Project
+
+  > Ruby 2.6.1
+
+  > Rails 5.2.3
+
+  > PostgreSQL
+
+  > RSpec
 
 * Configuration
 
+  > copy `config/database.yml` from `config/database.yml.example`
+
 * Database creation
 
-* Database initialization
+  > run `rails db:create`
 
-* How to run the test suite
+  > run `rails db:migrate`
 
-* Services (job queues, cache servers, search engines, etc.)
+  > run `rails db:seed`
 
-* Deployment instructions
+## Tests
 
-* ...
+  > database migration `rails db:migrate RAILS_ENV=test`
+
+  > run test `rspec`
+
+## Production Deploy and Recommendations:
+
+  > copy `config/database.yml` from `config/database.yml.example`
